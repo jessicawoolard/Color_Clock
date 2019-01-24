@@ -1,33 +1,49 @@
-function numberWithLeadingZeros(num) {
-    return  (num < 10 ? '0' : '') + num
-}
-function numToHex(num) {
-    var hexString = num.toString(16);
-    if (hexString.length % 2) {
-        hexString = '0' + hexString;
+$(document).ready(function () {
+    function numberWithLeadingZeros(num) {
+        return (num < 10 ? '0' : '') + num
     }
-    return hexString;
-}
 
+    function numToHex(num) {
+        var hexString = parseInt(num).toString(16).toUpperCase();
+        if (hexString.length % 2) {
+            hexString = '0' + hexString;
+        }
+        return hexString;
+    }
 
-function logTime() {
-    let currentTime = new Date();
-    let hours = numberWithLeadingZeros(currentTime.getHours());
-    let minutes = numberWithLeadingZeros(currentTime.getMinutes());
-    let seconds = numberWithLeadingZeros(currentTime.getSeconds());
-    let formattedDate = hours + ':' + minutes + ':' + seconds;
-    console.log('current time', currentTime);
-    document.getElementById("time").textContent = formattedDate;
-    let color = '#' + numToHex(hours) + numToHex(minutes) + numToHex(seconds);
-    document.body.style.backgroundColor = color;
-    console.log(color)
-}
+    function logTime() {
+
+        let currentTime = new Date();
+        let hours = numberWithLeadingZeros(currentTime.getHours());
+        let minutes = numberWithLeadingZeros(currentTime.getMinutes());
+        let seconds = numberWithLeadingZeros(currentTime.getSeconds());
+
+        var hexHours = numToHex(hours);
+        var hexMinutes = numToHex(minutes);
+        var hexSeconds = numToHex(seconds);
+
+        if (isHovering){
+            let formattedHex = hexHours + ':' + hexMinutes + ':' + hexSeconds;
+            document.getElementById("time").textContent = formattedHex;
+        }
+        else {
+            let formattedDate = hours + ':' + minutes + ':' + seconds;
+            document.getElementById("time").textContent = formattedDate;
+        }
+
+        let color = '#' + hexHours + hexMinutes + hexSeconds;
+        document.body.style.backgroundColor = color;
+
+        $('#progress').width(((seconds / 60) * 100) + '%');
+    }
 
     setInterval(logTime, 1000);
 
+    var isHovering = false;
+    $('#time').hover(function(){
+        isHovering = true
+    }, function(){
+        isHovering = false
+    })
+});
 
-
-
-// var everySecond = setInterval(function() {
-// //   document.querySelector('.time').textContent = Date.now();
-// // }, 36000);
