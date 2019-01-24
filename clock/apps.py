@@ -1,5 +1,5 @@
-from django.apps import ColorClock
+# from django.apps import ColorClock
 
 
-class ColorClock(ColorClock):
-    name = 'clock'
+# class ColorClock(ColorClock):
+#     name = 'clock'
