@@ -1,1 +1,1 @@
-web: gunicorn color_clock.wsgi --log-file -
+web: gunicorn color_clock.wsgi
