@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ======== STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+STATIC_ROOT = os.path.dirname(os.path.join(BASE_DIR, 'staticfiles'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
@@ -40,7 +40,7 @@ SECRET_KEY = '3mkbstf+n%+0bp*h^=1gc(lr(c-4msl3e96nc+ses8tw5d86e^'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
+    '127.0.0.1',
     ' https://thawing-crag-98686.herokuapp.com/',
 ]
 
