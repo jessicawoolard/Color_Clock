@@ -41,7 +41,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    ' https://thawing-crag-98686.herokuapp.com/',
+    'thawing-crag-98686.herokuapp.com',
 ]
 
 
